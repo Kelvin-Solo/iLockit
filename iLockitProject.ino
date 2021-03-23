@@ -1,57 +1,29 @@
-/*extern "C"{
-#include"pins_arduino.h"
-#include"lcd.h"
-//#include"myutils.h"
-};
-*/
 
-#include<LiquidCrystal.h>
+//#include"display.h"
+//#include"rgb.h"
+#include"ultrasonic.h"
+int max_level = 20;
+int min_levl = 5;
+int distance = 0;
+char depth[3];
 
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-
-
-/*const int trigPin = 0;
-const int echoPin = 1;
-
-long pulseDuration;
-int distance;
-char depth[5];
-*/
 void setup() {
-/*  // put your setup code here, to run once:
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+
+  ultrasonic_init();
+ 
+  Serial.begin(9600);
   
-*/  //InitLCD(LS_BLINK|LS_ULINE);
-  lcd.begin(16, 2);
+
+  Serial.println("ILockit initializing...");
+  
 }
 
 void loop() {
-  lcd.print("iLockIt");
-  delay(2000);
-  lcd.clear();
-  
-  // Clears the trigPin
-  //digitalWrite(trigPin, LOW);
-  //delayMicroseconds(2);
-  
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  //digitalWrite(trigPin, HIGH);
-  //delayMicroseconds(10);
-  //digitalWrite(trigPin, LOW);
-  
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  //pulseDuration = pulseIn(echoPin, HIGH);
-  // Calculating the distance
-  //distance= pulseDuration*0.034/2;
-  //itoa(distance, depth, 10);
-  // Prints the distance on LCD
-  //LCDWriteStringXY(0,0,"Distance: ");
-  
-  lcd.setCursor(0,0);
-  lcd.print("Distance: ");
 
-  lcd.setCursor(0,11);
-  lcd.print("depth");
+  distance = calculate_distance();
+  water_depth(distance, depth);
+
+  Serial.print("distance is ");
+  Serial.print(depth);
+  Serial.println(" cm");
 }
