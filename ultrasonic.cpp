@@ -22,9 +22,8 @@ int calculate_distance(void){
 	int pulseDuration = pulseIn(echoPin, HIGH);
 
 	int distance = pulseDuration * 0.034 / 2;
-	//char depth[3];
 
-	//itoa(distance, depth, 10);
+	
 
 	return distance;
 }
@@ -32,4 +31,3 @@ int calculate_distance(void){
 void  water_depth(int distance, char depth[3]){
 	itoa(distance, depth, 10);
 }
-
