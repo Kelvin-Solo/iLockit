@@ -21,7 +21,8 @@ int calculate_distance(void){
 
 	int pulseDuration = pulseIn(echoPin, HIGH);
 
-	int distance = pulseDuration * 0.034 / 2;
+	int distance = 14-(pulseDuration * 0.034 / 2);
+  //14(min level + max level) is assumed as tank height.
 
 	
 

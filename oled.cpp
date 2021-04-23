@@ -25,4 +25,3 @@ void oled_display(int X, int Y, int size, char text[20]){
 void clear_screen(void){
 	display.clearDisplay();
 }
-
