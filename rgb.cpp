@@ -8,6 +8,7 @@ void rgb_init(void){
   pinMode(red_light_pin, OUTPUT);
   pinMode(green_light_pin, OUTPUT);
   pinMode(blue_light_pin, OUTPUT);
+//   Serial.println("RGB Complete");
 }
 
 void rgb_disp(int red_light_value, int green_light_value, int blue_light_value){

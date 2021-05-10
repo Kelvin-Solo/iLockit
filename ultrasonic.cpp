@@ -7,6 +7,7 @@ const int echoPin = 6;
 void ultrasonic_init(void){
 	pinMode(trigPin, OUTPUT);
 	pinMode(echoPin, INPUT);
+	// Serial.println("U Complete");
 }
 
 int calculate_distance(void){

@@ -4,6 +4,7 @@ const int relay = 2;
 
 void relay_init(void){
 	pinMode(relay, OUTPUT);
+	// Serial.println("Relay Complete");
 }
 
 void relay_off(void){
